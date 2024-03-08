@@ -1,0 +1,71 @@
+\documentclass[11pt, oneside]{article}
+
+\usepackage{texmf/preamble}
+\usepackage{texmf/macros}
+\usepackage{texmf/wordcount}
+
+\graphicspath{{./assets/}}
+\addglobalbib{sources.bib}
+
+% =================================================================
+% Content
+% =================================================================
+
+\begin{document} % BEGIN
+\pagenumbering{gobble}
+\onehalfspacing
+
+\begin{titlepage}
+    \large
+
+    \begin{center}
+        \vspace*{1cm}
+        
+        \LARGE
+        {\bfseries
+            IB Math Analysis and Approaches (HL) \\
+            Internal Assessment}\\
+
+        \vspace*{5cm}
+
+        \rule{\linewidth}{1pt} \\ [0.5cm]
+
+        {\huge \bfseries Determining the Optimal Quantity of Garland Needed to Decorate My Christmas Tree}
+
+        \rule{\linewidth}{1pt} \\
+
+        \vspace*{7cm}
+
+        \Large
+        \textbf{Session:} May 2024 \\ 
+        \textbf{Page Count:} \pageref{lastpage} pages \\ 
+        \textbf{Word Count:} \wordcount words
+    \end{center}
+
+\end{titlepage}
+
+% ==================
+
+\clearpage
+\pagestyle{mainmatter}
+\pagenumbering{arabic}
+\doublespacing
+
+\input{sections/1_intro.tex}
+\input{sections/2_method.tex}
+\input{sections/3_model.tex}
+\input{sections/4_derivation.tex}
+\input{sections/5_solving.tex}
+
+\label{lastpage}
+
+% ==================
+
+%TC:ignore
+\clearpage
+\pagestyle{backmatter}
+\printbibliography[heading=bibintoc]{}
+%TC:endignore
+
+\end{document} % END
+

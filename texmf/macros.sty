@@ -1,0 +1,50 @@
+\ProvidesPackage{macros}
+
+% UNITS
+\DeclareSIUnit{\pixel}{px}
+
+% ENVIRONMENTS
+\newenvironment{system}{\left\lbrace\begin{array}{@{}l@{}}}{\end{array}\right.}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+
+% COMMANDS
+\newcommand{\scalemath}[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+\newcommand{\seteq}{\stackrel{\mathclap{\mbox{\normalfont\scriptsize set}}}{=}}
+
+\newcommand{\optmin}[3]{\underset{#1}{\text{minimize}}\enspace #2 \enspace \text{subject to} \enspace  #3}
+
+\newcommand{\T}{\mathsf{T}}
+
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Rational}{\mathbb{Q}}
+\newcommand{\Irrational}{\mathbb{I}}
+
+\newcommand{\dss}{\displaystyle}
+
+\newcommand{\bulletarrow}{\indent\ding{226}\quad}
+
+\newcommand{\eqrestriction}[1]{%
+\, , \; 
+\def\nextitem{\def\nextitem{;}}% Separator
+\renewcommand*\do[1]{\nextitem##1}% How to process each item
+\docsvlist{#1}% Process list
+}
+\newcommand\undermat[2]{%
+  \makebox[0pt][l]{$\smash{\underbrace{\phantom{%
+    \begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+

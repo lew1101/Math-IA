@@ -1,0 +1,5 @@
+\ProvidesPackage{wordcount}
+
+\immediate\write18{texcount -inc -0 -template={1} \jobname.tex > 'build/count.txt'}
+
+\providecommand{\wordcount}{\input{build/count.txt}}

@@ -1,0 +1,40 @@
+\section*{Evaluating the Integral}
+Now, we evaluate the integral so that we can finally obtain a general solution for the length of the garland based on our chosen parameters. Since the integral is of the form $\sqrt{c^2+x^2}$, it can be evaluated using trigonometric substitution.
+
+\bulletarrow Let $t=\frac{S}{R}\tan{\theta}$. Thus, $\dd{t} = \frac{S}{R}\sec^2{\theta} \dd{\theta}$. Substituting them into equation \ref{eq:integral}:
+\begin{align}
+    \Rightarrow L & = \frac{\lambda}{2\pi \cancel{S}}\int_0^{t =\frac{2\pi S}{\lambda}} \sqrt{S^2 + R^2\left(\frac{S}{R}\tan{\theta}\right)^2} \cdot \frac{\cancel{S}}{R}\sec^2{\theta} \dd{\theta} \notag \\
+                  & = \frac{\lambda}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}} \sqrt{S^2 + S^2\tan^2{\theta}} \cdot \sec^2{\theta} \dd{\theta} \notag                                                      \\
+                  & = \frac{\lambda}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}} S\sec{\theta} \cdot \sec^2{\theta} \dd{\theta} \notag                                                                       \\
+                  & = \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}} \sec^3{\theta} \dd{\theta}    \label{eq:subbed}
+\end{align}
+Then, using integration by parts, the integral of $\sec^3{\theta}$ can be evaluated.
+
+\bulletarrow Let $u=\sec{\theta}$ and $\dd{v} = \sec^2{\theta} \dd{\theta}$. Therefore, $\dd{u} = \sec{\theta}\tan{\theta}$ and $v = \tan{\theta}$.
+\begin{equation*}
+    \Rightarrow L = \frac{\lambda S}{2\pi R}\left[\sec{\theta}\tan{\theta}\Bigm|_0^{t =\frac{2\pi S}{\lambda}}-\int_0^{t =\frac{2\pi S}{\lambda}} \sec{\theta}\tan^2{\theta} \dd{\theta}
+    \right]
+\end{equation*}
+\bulletarrow Using the identity $\tan^2{\theta} = \sec^2{\theta} - 1$:
+\begin{align*}
+    \Rightarrow L & = \frac{\lambda S}{2\pi R}\left[\sec{\theta}\tan{\theta}\Bigm|_0^{t =\frac{2\pi S}{\lambda}}-\int_0^{t =\frac{2\pi S}{\lambda}} (\sec^3{\theta} - \sec{\theta}) \dd{\theta}\right]                                                                      \\
+                  & = \frac{\lambda S}{2\pi R}\left[\sec{\theta}\tan{\theta}\Bigm|_0^{t =\frac{2\pi S}{\lambda}}+\int_0^{t =\frac{2\pi S}{\lambda}}  \sec{\theta} \dd{\theta}\right] - \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta}
+\end{align*}
+\bulletarrow By $\int \sec{\theta} \dd{\theta} = \ln(\sec{\theta}+\tan{\theta})+c$:
+\begin{equation*}
+    \Rightarrow L = \frac{\lambda S}{2\pi R}\Big[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} - \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta}
+\end{equation*}
+\bulletarrow Since $\frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta} = L$ (equation \ref{eq:subbed}):
+\begin{align}
+    \Rightarrow L  & = \frac{\lambda S}{2\pi R}\Big[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} - L \notag           \\
+    \Rightarrow 2L & = \frac{\lambda S}{2\pi R}\Big[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} \notag               \\
+    \Rightarrow L  & = \frac{\lambda S}{4\pi R}\Big[\sec {\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} \label{eq:trig_int}
+\end{align}
+\bulletarrow Now, we want to reverse the substitution and bring the equation back in terms of our original variable, $t$. Recall that we substituted $t=\frac{S}{R}\tan{theta}$, so $\tan{\theta} = \frac{R}{S}t$. Then, using the identity $\sec^2{\theta} = 1 + \tan^2{\theta}$, we can find what $\sec{\theta}$ is equal to:
+\begin{equation*}
+    \sec{\theta} = \sqrt{1+\tan^2{\theta}} =\sqrt{1+\frac{R^2}{S^2}t^2} = \frac{\sqrt{S^2+R^2t^2}}{S}
+\end{equation*}
+\bulletarrow Reversing the substitution in equation \ref{eq:trig_int}:
+\begin{align*}
+    L & = \frac{\lambda S}{4\pi R}\left[\frac{\sqrt{S^2+R^2t^2}}{S}\cdot\frac{R}{S}t+\ln\left(\frac{\sqrt{S^2+R^2t^2}}{S}+\frac{R}{S}t\right)\right]_0^{t =\frac{2\pi S}{\lambda}}
+\end{align*}

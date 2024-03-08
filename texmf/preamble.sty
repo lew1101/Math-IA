@@ -1,0 +1,94 @@
+\ProvidesPackage{preamble}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pifont}
+\usepackage[english]{babel}
+\usepackage[
+    letterpaper,
+    nomarginpar,
+    headheight=14pt,
+    margin=0.7in, 
+    headsep=10pt
+]{geometry}
+\usepackage[
+    authordate,
+    backend=biber
+]{biblatex-chicago}
+\usepackage[
+    format=hang,
+    font=small,
+    labelfont=bf,
+    figurewithin=section,
+    tablewithin=section
+]{caption}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[indent]{parskip}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{subcaption}
+\usepackage[nodisplayskipstretch]{setspace}
+\usepackage{caption}
+\usepackage[title]{appendix}
+\usepackage{sectsty}
+\usepackage{titling}
+\usepackage{ragged2e}
+\usepackage{tablefootnote}
+\usepackage[section]{placeins}
+\usepackage{etoolbox}
+\usepackage[small]{titlesec}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{xfrac}
+
+\usepackage{icomma}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage[per-mode=symbol]{siunitx}
+\usepackage{array}
+\usepackage{blkarray}
+\usepackage{enumitem}
+\usepackage{optidef}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{physics}
+\usepackage{cancel}
+
+% ======================================
+% Page Styles
+% ======================================
+
+\fancypagestyle{frontmatter}{
+    \pagestyle{empty}
+}
+
+\fancypagestyle{mainmatter}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.7pt}
+    \fancyhead[L]{\newline\footnotesize\slshape\scshape\nouppercase{IB Math AA HL Internal Assessment}}
+    \fancyfoot[C]{\normalsize\thepage}
+}
+
+\fancypagestyle{backmatter}{
+    \fancyhf{}
+    \fancyfoot[C]{\normalsize\thepage}
+}
+
+\setlength{\tabcolsep}{6pt} % default value: 6pt
+\setlength{\extrarowheight}{3pt}
+\renewcommand{\arraystretch}{1} 
+\setlength{\defaultaddspace}{10pt}
+
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\titlespacing*{\section}{0pt}{0.45\baselineskip}{0.1\baselineskip}
