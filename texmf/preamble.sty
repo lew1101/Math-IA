@@ -8,7 +8,7 @@
     letterpaper,
     nomarginpar,
     headheight=14pt,
-    margin=0.7in, 
+    margin=0.7in,
     headsep=10pt
 ]{geometry}
 \usepackage[
@@ -46,6 +46,7 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 \usepackage{xfrac}
 
 \usepackage{icomma}
@@ -62,6 +63,7 @@
 \usepackage{longtable}
 \usepackage{physics}
 \usepackage{cancel}
+\usepackage{linegoal}
 
 % ======================================
 % Page Styles
@@ -83,12 +85,25 @@
     \fancyfoot[C]{\normalsize\thepage}
 }
 
+\fancypagestyle{appendices}{
+    \fancyhf{}
+    \fancyhead[L]{\newline\footnotesize\slshape\scshape\nouppercase{Appendices}}
+    \fancyfoot[C]{\normalsize\thepage}
+}
+
+\allowdisplaybreaks
+
 \setlength{\tabcolsep}{6pt} % default value: 6pt
 \setlength{\extrarowheight}{3pt}
-\renewcommand{\arraystretch}{1} 
+\renewcommand{\arraystretch}{1}
 \setlength{\defaultaddspace}{10pt}
 
-\setcounter{tocdepth}{5}
-\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{3}
+
+\titleformat{\section}{\normalfont\normalsize\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\normalsize\itshape}{}{0pt}{}
 
 \titlespacing*{\section}{0pt}{0.45\baselineskip}{0.1\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.45\baselineskip}{0.1\baselineskip}
+
+\counterwithout{figure}{section}

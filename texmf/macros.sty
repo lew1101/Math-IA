@@ -1,7 +1,12 @@
 \ProvidesPackage{macros}
 
 % UNITS
+\let\DeclareUSUnit\DeclareSIUnit
+\let\US\SI
+
 \DeclareSIUnit{\pixel}{px}
+\DeclareUSUnit{\inch}{in}
+\DeclareUSUnit{\feet}{ft}
 
 % ENVIRONMENTS
 \newenvironment{system}{\left\lbrace\begin{array}{@{}l@{}}}{\end{array}\right.}
@@ -27,7 +32,7 @@
 
 \newcommand{\dss}{\displaystyle}
 
-\newcommand{\bulletarrow}{\indent\ding{226}\quad}
+\newcommand{\bulletarrow}[1]{\indent\ding{226}\quad\parbox[t]{\linegoal}{#1}}
 
 \newcommand{\eqrestriction}[1]{%
 \, , \; 

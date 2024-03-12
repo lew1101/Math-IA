@@ -1,7 +1,6 @@
-\section*{Evaluating the Integral}
+\section{Evaluating the Integral}
 Now, we evaluate the integral so that we can finally obtain a general solution for the length of the garland based on our chosen parameters. Since the integral is of the form $\sqrt{c^2+x^2}$, it can be evaluated using trigonometric substitution.
-
-\bulletarrow Let $t=\frac{S}{R}\tan{\theta}$. Thus, $\dd{t} = \frac{S}{R}\sec^2{\theta} \dd{\theta}$. Substituting them into equation \ref{eq:integral}:
+\newline\bulletarrow{Let $t=\frac{S}{R}\tan{\theta}$. Thus, $\dd{t} = \frac{S}{R}\sec^2{\theta} \dd{\theta}$. Substituting them into equation \ref{eq:integral}:}
 \begin{align}
     \Rightarrow L & = \frac{\lambda}{2\pi \cancel{S}}\int_0^{t =\frac{2\pi S}{\lambda}} \sqrt{S^2 + R^2\left(\frac{S}{R}\tan{\theta}\right)^2} \cdot \frac{\cancel{S}}{R}\sec^2{\theta} \dd{\theta} \notag \\
                   & = \frac{\lambda}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}} \sqrt{S^2 + S^2\tan^2{\theta}} \cdot \sec^2{\theta} \dd{\theta} \notag                                                      \\
@@ -9,32 +8,46 @@ Now, we evaluate the integral so that we can finally obtain a general solution f
                   & = \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}} \sec^3{\theta} \dd{\theta}    \label{eq:subbed}
 \end{align}
 Then, using integration by parts, the integral of $\sec^3{\theta}$ can be evaluated.
-
-\bulletarrow Let $u=\sec{\theta}$ and $\dd{v} = \sec^2{\theta} \dd{\theta}$. Therefore, $\dd{u} = \sec{\theta}\tan{\theta}$ and $v = \tan{\theta}$.
+\newline\bulletarrow{Let $u=\sec{\theta}$ and $\dd{v} = \sec^2{\theta} \dd{\theta}$. Therefore, $\dd{u} = \sec{\theta}\tan{\theta}$ and $v = \tan{\theta}$.}
 \begin{equation*}
-    \Rightarrow L = \frac{\lambda S}{2\pi R}\left[\sec{\theta}\tan{\theta}\Bigm|_0^{t =\frac{2\pi S}{\lambda}}-\int_0^{t =\frac{2\pi S}{\lambda}} \sec{\theta}\tan^2{\theta} \dd{\theta}
+    \Rightarrow L = \frac{\lambda S}{2\pi R}\left[\eval{\sec{\theta}\tan{\theta}}_0^{t =\frac{2\pi S}{\lambda}}-\int_0^{t =\frac{2\pi S}{\lambda}} \sec{\theta}\tan^2{\theta} \dd{\theta}
     \right]
 \end{equation*}
-\bulletarrow Using the identity $\tan^2{\theta} = \sec^2{\theta} - 1$:
+\bulletarrow{Using the identity $\tan^2{\theta} = \sec^2{\theta} - 1$:}
 \begin{align*}
-    \Rightarrow L & = \frac{\lambda S}{2\pi R}\left[\sec{\theta}\tan{\theta}\Bigm|_0^{t =\frac{2\pi S}{\lambda}}-\int_0^{t =\frac{2\pi S}{\lambda}} (\sec^3{\theta} - \sec{\theta}) \dd{\theta}\right]                                                                      \\
-                  & = \frac{\lambda S}{2\pi R}\left[\sec{\theta}\tan{\theta}\Bigm|_0^{t =\frac{2\pi S}{\lambda}}+\int_0^{t =\frac{2\pi S}{\lambda}}  \sec{\theta} \dd{\theta}\right] - \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta}
+    \Rightarrow L & = \frac{\lambda S}{2\pi R}\left[\eval{\sec{\theta}\tan{\theta}}_0^{t =\frac{2\pi S}{\lambda}}-\int_0^{t =\frac{2\pi S}{\lambda}} (\sec^3{\theta} - \sec{\theta}) \dd{\theta}\right]                                                                      \\
+                  & = \frac{\lambda S}{2\pi R}\left[\eval{\sec{\theta}\tan{\theta}}_0^{t =\frac{2\pi S}{\lambda}}+\int_0^{t =\frac{2\pi S}{\lambda}}  \sec{\theta} \dd{\theta}\right] - \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta}
 \end{align*}
-\bulletarrow By $\int \sec{\theta} \dd{\theta} = \ln(\sec{\theta}+\tan{\theta})+c$:
+\bulletarrow{By $\int \sec{\theta} \dd{\theta} = \ln(\sec{\theta}+\tan{\theta})+c$:}
 \begin{equation*}
-    \Rightarrow L = \frac{\lambda S}{2\pi R}\Big[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} - \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta}
+    \Rightarrow L = \frac{\lambda S}{2\pi R}\eval[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})|_0^{t =\frac{2\pi S}{\lambda}} - \frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta}
 \end{equation*}
-\bulletarrow Since $\frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta} = L$ (equation \ref{eq:subbed}):
+Note that when integrating, the argument of logarithms are typically wrapped in absolute value because indefinite integrals are usually evaluated for all real values, but logarithms are restricted to arguments greater than 0. However, since only positive answers for $L$ are desired, as well as my chosen parameters being positive, the arguments of the natural log should never be negative, and thus the absolute value is not necessary.
+
+\bulletarrow{Back to the integral, since $\frac{\lambda S}{2\pi R}\int_0^{t =\frac{2\pi S}{\lambda}}\sec^3{\theta} \dd{\theta} = L$ (equation \ref{eq:subbed}):}
 \begin{align}
-    \Rightarrow L  & = \frac{\lambda S}{2\pi R}\Big[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} - L \notag           \\
-    \Rightarrow 2L & = \frac{\lambda S}{2\pi R}\Big[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} \notag               \\
-    \Rightarrow L  & = \frac{\lambda S}{4\pi R}\Big[\sec {\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})\Big]_0^{t =\frac{2\pi S}{\lambda}} \label{eq:trig_int}
+    \Rightarrow L  & = \frac{\lambda S}{2\pi R}\eval[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})|_0^{t =\frac{2\pi S}{\lambda}} - L \notag           \\
+    \Rightarrow 2L & = \frac{\lambda S}{2\pi R}\eval[\sec{\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})|_0^{t =\frac{2\pi S}{\lambda}} \notag               \\
+    \Rightarrow L  & = \frac{\lambda S}{4\pi R}\eval[\sec {\theta}\tan{\theta}+\ln(\sec{\theta}+\tan{\theta})|_0^{t =\frac{2\pi S}{\lambda}} \label{eq:trig_int}
 \end{align}
-\bulletarrow Now, we want to reverse the substitution and bring the equation back in terms of our original variable, $t$. Recall that we substituted $t=\frac{S}{R}\tan{theta}$, so $\tan{\theta} = \frac{R}{S}t$. Then, using the identity $\sec^2{\theta} = 1 + \tan^2{\theta}$, we can find what $\sec{\theta}$ is equal to:
+\bulletarrow{Now, we want to reverse the substitution and bring the equation back in terms of our original variable, $t$. Recall that we substituted $t=\frac{S}{R}\tan{\theta}$, so $\tan{\theta} = \frac{R}{S}t$. Then, using the identity $\sec^2{\theta} = 1 + \tan^2{\theta}$, we can find what $\sec{\theta}$ is equal to:}
 \begin{equation*}
     \sec{\theta} = \sqrt{1+\tan^2{\theta}} =\sqrt{1+\frac{R^2}{S^2}t^2} = \frac{\sqrt{S^2+R^2t^2}}{S}
 \end{equation*}
-\bulletarrow Reversing the substitution in equation \ref{eq:trig_int}:
+\bulletarrow{Reversing the substitution in equation \ref{eq:trig_int}:}
+\begin{equation}
+    L = \frac{\lambda S}{4\pi R}\eval[\frac{\sqrt{S^2+R^2t^2}}{S}\cdot\frac{R}{S}t+\ln\left(\frac{\sqrt{S^2+R^2t^2}}{S}+\frac{R}{S}t\right)|_0^{\frac{2\pi S}{\lambda}}
+\end{equation}
+\bulletarrow{Using \textbf{FTC Part 2} to evaluate the integral between the lower and upper bound:}
 \begin{align*}
-    L & = \frac{\lambda S}{4\pi R}\left[\frac{\sqrt{S^2+R^2t^2}}{S}\cdot\frac{R}{S}t+\ln\left(\frac{\sqrt{S^2+R^2t^2}}{S}+\frac{R}{S}t\right)\right]_0^{t =\frac{2\pi S}{\lambda}}
+    \Rightarrow L &= \frac{\lambda S}{4\pi R}\left[\frac{\sqrt{S^2+R^2\left(\frac{2\pi S}{\lambda}\right)^2}}{S}\cdot\frac{R}{S}\left(\frac{2\pi S}{\lambda}\right)+\ln\left(\frac{\sqrt{S^2+R^2\left(\frac{2\pi S}{\lambda}\right)^2}}{S}+\frac{R}{S}\left(\frac{2\pi S}{\lambda}\right)\right)\right.- \\
+    &\qquad\qquad\qquad \left.-\cancel{\frac{\sqrt{S^2+R^2(0)^2}}{S}\cdot\frac{R}{S}(0)}-\ln\left(\frac{\sqrt{S^2+R^2(0)^2}}{S}+\cancel{\frac{R}{S}(0)}\right)\right] \\ 
+    &= \frac{S}{2}\sqrt{1+\frac{4\pi^2R^2}{\lambda}}+\frac{\lambda S}{4\pi R}\left[\ln\left(\sqrt{1+\frac{4\pi^2R^2}{\lambda}}+\frac{2\pi R}{\lambda}\right)-\ln(1)\right] \\
+    &= \frac{S}{2 \lambda}\sqrt{\lambda^2+4\pi^2R^2}+\frac{\lambda S}{4\pi R}\ln\left(\frac{\sqrt{\lambda^2+4\pi^2R^2}+2\pi R}{\lambda}\right)
 \end{align*}
+\bulletarrow{After simplifying and reversing the substitution $S=\sqrt{R^2+H^2}$, we arrive at the final form of the general solution for the length of the garland:}
+\begin{equation}
+    \boxed{L(\lambda, R, H) = \frac{\sqrt{R^2+H^2}}{2\lambda}\sqrt{\lambda^2+4\pi^2R^2}+\frac{\lambda \sqrt{R^2+H^2}}{4\pi R}\bigg[\ln\left(\sqrt{\lambda^2+4\pi^2R^2}+2\pi R\right)-\ln\lambda\bigg]} \label{eq:final}
+\end{equation}
+\hspace*{\fill} where $\lambda, R, H \in \Real^+$.
+

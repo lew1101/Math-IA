@@ -20,7 +20,7 @@
 
     \begin{center}
         \vspace*{1cm}
-        
+
         \LARGE
         {\bfseries
             IB Math Analysis and Approaches (HL) \\
@@ -37,8 +37,8 @@
         \vspace*{7cm}
 
         \Large
-        \textbf{Session:} May 2024 \\ 
-        \textbf{Page Count:} \pageref{lastpage} pages \\ 
+        \textbf{Session:} May 2024 \\
+        \textbf{Page Count:} \pageref{lastpage} pages \\
         \textbf{Word Count:} \wordcount words
     \end{center}
 
@@ -56,6 +56,8 @@
 \input{sections/3_model.tex}
 \input{sections/4_derivation.tex}
 \input{sections/5_solving.tex}
+\input{sections/6_verify.tex}
+\input{sections/7_analysis.tex}
 
 \label{lastpage}
 
@@ -65,7 +67,16 @@
 \clearpage
 \pagestyle{backmatter}
 \printbibliography[heading=bibintoc]{}
+
+% ==================
+\clearpage
+\pagestyle{appendices}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{1em}{}
+\begin{appendices}
+    \input{sections/appendices/A_limit.tex}
+\end{appendices}
 %TC:endignore
+
 
 \end{document} % END
 

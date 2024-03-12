@@ -1,10 +1,9 @@
-\section*{Deriving an Equation for the Length of the Garland}
+\section{Deriving an Equation for the Length of the Garland}
 
 With a function which models the garland, we can now calculate the length of the garland by calculating the \emph{arc length} of $C(t)$. The arc length, $L$, is defined as the distance travelled along the path of a curve from one point to another \autocite{ArcLength2017}. The arc length of $C(t)$ can be evaluated by decomposing the curve into an infinite amount of infinitesimally small line segments, $\dd{L}$, and adding their lengths. Thus, the length of the garland is represented by the definite integral:
 \begin{equation}
     L=\int_0^\frac{2\pi S}{\lambda} \dd{L} \label{eq:arclen}
 \end{equation}
-
 The lower and upper bounds on the integral are a result of the restrictions imposed on $C(t)$.
 
 \begin{wrapfigure}{r}{0.35\textwidth}
@@ -22,20 +21,21 @@ However, this is not of much use, as $\dd{x}$, $\dd{y}$, and $\dd{z}$ are arbitr
 \begin{equation*}
     \dd{L} = \sqrt{\frac{(\dd{x})^2+(\dd{y})^2+(\dd{z})^2}{(\dd{t})^2}} \cdot \dd{t} = \sqrt{\left(\dv{x}{t}\right)^2+\left(\dv{y}{t}\right)^2+\left(\dv{z}{t}\right)^2} \cdot \dd{t}
 \end{equation*}
-\bulletarrow Substituting in $x(t)$, $y(t)$, and $z(t)$:
+
+\bulletarrow{Substituting in $x(t)$, $y(t)$, and $z(t)$:}
 \begin{align*}
     \Rightarrow \dd{L} & = \sqrt{\left(\dv{t}\left(\frac{\lambda}{2\pi S}Rt\cos{t}\right)\right)^2+\left(\dv{t}\left(\frac{\lambda}{2\pi S}Rt\sin{t}\right)\right)^2+\left(\dv{t}\left(\frac{\lambda}{2\pi S}Ht\right)\right)^2} \cdot \dd{t} \\
            &= \frac{\lambda}{2\pi S}\sqrt{\left(\dv{t}\left(Rt\cos{t}\right)\right)^2+\left(\dv{t}\left(Rt\sin{t}\right)\right)^2+\left(\dv{t}\left(Ht\right)\right)^2} \cdot \dd{t} \\
            &= \frac{\lambda}{2\pi S}\sqrt{(R\cos{t}-Rt\sin{t})^2+(R\sin{t}-Rt\cos{t})^2+H^2} \cdot \dd{t}
 \end{align*}
-\bulletarrow Expanding and simplifying:
+\bulletarrow{Expanding and simplifying:}
 \begin{align}
-    \Rightarrow \dd{L} &= \frac{\lambda}{2\pi S}\sqrt{(R^2\cos^2{t}-\cancel{2R^2t\sin{t}\cos{t}}+R^2t^2\sin^2{t})+(R^2\sin^2{t}+\cancel{2R^2t\sin{t}\cos{t}}+R^2t^2\cos^2{t})+H^2} \cdot \dd{t} \notag \\ 
-     &= \frac{\lambda}{2\pi S}\sqrt{R^2(\cancel{\sin^2{t} + \cos^2{t}})+ R^2t^2(\cancel{\sin^2{t}+\cos^2{t}})+H^2} \cdot \dd{t} \notag \\ 
+    \Rightarrow \dd{L} &= \frac{\lambda}{2\pi S}\sqrt{(R^2\cos^2{t}\cancel{-2R^2t\sin{t}\cos{t}}+R^2t^2\sin^2{t})+(R^2\sin^2{t}\cancel{+2R^2t\sin{t}\cos{t}}+R^2t^2\cos^2{t})+H^2} \cdot \dd{t} \notag \\ 
+     &= \frac{\lambda}{2\pi S}\sqrt{R^2(\sin^2{t} + \cos^2{t})+ R^2t^2(\sin^2{t}+\cos^2{t})+H^2} \cdot \dd{t} \notag \\ 
      &= \frac{\lambda}{2\pi S}\sqrt{R^2 +H^2 + R^2t^2} \cdot \dd{t} \notag \\ 
      &= \frac{\lambda}{2\pi S}\sqrt{S^2 + R^2t^2} \cdot \dd{t} 
 \end{align}
-\bulletarrow Substituting this back into equation \ref{eq:arclen}, we finally obtain:
+\bulletarrow{Substituting this back into equation \ref{eq:arclen}, we finally obtain:}
 \begin{equation}
     L = \frac{\lambda}{2\pi S}\int_0^\frac{2\pi S}{\lambda} \sqrt{S^2 + R^2t^2} \cdot \dd{t} \label{eq:integral}
 \end{equation}

@@ -1,0 +1,18 @@
+\section{Evaluating the Limit of $L(\lambda, R, H)$} \label{sec:qzhsb}
+
+\begin{align*}
+    \lim_{\lambda \to +\infty}&\left(\frac{\sqrt{R^2+H^2}}{2\lambda}\sqrt{\lambda^2+4\pi^2R^2}+\frac{\lambda \sqrt{R^2+H^2}}{4\pi R}\bigg[\ln\left(\sqrt{\lambda^2+4\pi^2R^2}+2\pi R\right)-\ln\lambda\bigg]\right) \\ 
+    &= \lim_{\lambda \to +\infty} \left(\frac{\sqrt{R^2+H^2}}{2\cancel{\lambda}}\cdot \cancel{\lambda}\cancelto{1}{\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}}\right) + \lim_{\lambda \to +\infty} \left(\frac{\lambda \sqrt{R^2+H^2}}{4\pi R}\cdot\ln\left(\frac{\sqrt{\lambda^2+4\pi^2R^2}+2\pi R}{\lambda}\right)\right) \\
+    &=\frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \frac{\ln\left(\frac{\sqrt{\lambda^2+4\pi^2R^2}+2\pi R}{\lambda}\right)}{\frac{4\pi R}{\lambda \sqrt{R^2+H^2}}} \\
+\intertext{\bulletarrow{Since the limit of the second term evaluates to $\frac{0}{0}$, by l'H\^{o}pital's rule:}}
+    &= \frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \frac{\dv{\lambda}\left(\ln\left(\frac{\sqrt{\lambda^2+4\pi^2R^2}+2\pi R}{\lambda}\right)\right)}{\dv{\lambda}\left(\frac{4\pi R}{\lambda \sqrt{R^2+H^2}}\right)} \\ 
+    &= \frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \frac{\frac{-1}{\lambda}+\frac{\lambda}{2\pi R\sqrt{\lambda^2+4\pi^2R^2}+4\pi^2R^2+\lambda^2}}{\frac{-4\pi R}{\lambda^2\sqrt{R^2+H^2}}} \\ 
+    &= \frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \left(\frac{-\lambda^2\sqrt{R^2+H^2}}{4\pi R} \cdot \frac{\cancel{\lambda^2}-2\pi R\sqrt{\lambda^2+4\pi^2R^2}-4\pi^2R^2\cancel{-\lambda^2}}{2\pi R\lambda\sqrt{\lambda^2+4\pi^2R^2}+4\pi^2R^2\lambda+\lambda^3}\right) \\
+    &= \frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \left(\frac{\lambda^2\sqrt{R^2+H^2}}{4\pi R} \cdot \frac{2\pi R\lambda\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}+4\pi^2R^2}{2\pi R\lambda^2\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}+4\pi^2R^2\lambda+\lambda^3}\right) \\ 
+\intertext{\bulletarrow{Multiplying the numerator and denominator by $\frac{1}{\lambda^3}$:}}
+    &= \frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \left(\frac{\sqrt{R^2+H^2}}{4\pi R} \cdot \frac{2\pi R\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}+\frac{4\pi^2R^2}{\lambda}}{\frac{2\pi R\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}}{\lambda}+\frac{4\pi^2R^2}{\lambda^2}+1}\right) \\ 
+    &= \frac{\sqrt{R^2+H^2}}{2} + \lim_{\lambda \to +\infty} \left(\frac{\sqrt{R^2+H^2}}{2} \cdot \frac{\cancelto{1}{\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}}+\cancelto{0}{\frac{2\pi R}{\lambda}}}{\cancelto{0}{\frac{2\pi R\sqrt{1+\frac{4\pi^2R^2}{\lambda^2}}}{\lambda}}+\cancelto{0}{\frac{4\pi^2R^2}{\lambda^2}}+1}\right) \\ 
+    &= \frac{\sqrt{R^2+H^2}}{2} + \frac{\sqrt{R^2+H^2}}{2} \\ 
+    &= \boxed{\sqrt{R^2+H^2}}
+\end{align*}
+Thus, the limit of $L(\lambda, R. H)$ as $\lambda \to +\infty$ will always be equal to the slant height of a cone with height $H$ and base radius $R$.
