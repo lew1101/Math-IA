@@ -1,4 +1,4 @@
-\documentclass[11pt, oneside]{article}
+\documentclass[12pt, oneside]{article}
 
 \usepackage{texmf/preamble}
 \usepackage{texmf/macros}
@@ -15,13 +15,13 @@
 \pagenumbering{gobble}
 \onehalfspacing
 
-\begin{titlepage}
+\begin{titlingpage}
     \large
 
     \begin{center}
         \vspace*{1cm}
 
-        \LARGE
+        \Large
         {\bfseries
             IB Math Analysis and Approaches (HL) \\
             Internal Assessment}\\
@@ -30,19 +30,18 @@
 
         \rule{\linewidth}{1pt} \\ [0.5cm]
 
-        {\huge \bfseries Determining the Optimal Quantity of Garland Needed to Decorate My Christmas Tree}
+        {\LARGE \bfseries Determining the Optimal Quantity of Garland Needed to Decorate My Christmas Tree}
 
         \rule{\linewidth}{1pt} \\
 
         \vspace*{7cm}
 
-        \Large
+        \large
         \textbf{Session:} May 2024 \\
         \textbf{Page Count:} \pageref{lastpage} pages \\
         \textbf{Word Count:} \wordcount words
     \end{center}
-
-\end{titlepage}
+\end{titlingpage}
 
 % ==================
 
@@ -56,8 +55,9 @@
 \input{sections/3_model.tex}
 \input{sections/4_derivation.tex}
 \input{sections/5_solving.tex}
-\input{sections/6_verify.tex}
+% \input{sections/6_verify.tex}
 \input{sections/7_analysis.tex}
+\input{sections/8_conclusion.tex}
 
 \label{lastpage}
 
@@ -65,7 +65,7 @@
 
 %TC:ignore
 \clearpage
-\pagestyle{backmatter}
+\pagestyle{references}
 \printbibliography[heading=bibintoc]{}
 
 % ==================
@@ -73,7 +73,8 @@
 \pagestyle{appendices}
 \titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{1em}{}
 \begin{appendices}
-    \input{sections/appendices/A_limit.tex}
+    \input{sections/appendices/A_table.tex}
+    \input{sections/appendices/B_limit.tex}
 \end{appendices}
 %TC:endignore
 

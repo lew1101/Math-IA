@@ -7,7 +7,7 @@
 \usepackage[
     letterpaper,
     nomarginpar,
-    headheight=14pt,
+    headheight=15pt,
     margin=0.7in,
     headsep=10pt
 ]{geometry}
@@ -22,6 +22,7 @@
     figurewithin=section,
     tablewithin=section
 ]{caption}
+\usepackage{titling}
 \usepackage[protrusion=true, expansion=true]{microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
@@ -80,8 +81,9 @@
     \fancyfoot[C]{\normalsize\thepage}
 }
 
-\fancypagestyle{backmatter}{
+\fancypagestyle{references}{
     \fancyhf{}
+    \fancyhead[L]{\newline\footnotesize\slshape\scshape\nouppercase{References}}
     \fancyfoot[C]{\normalsize\thepage}
 }
 
@@ -91,19 +93,21 @@
     \fancyfoot[C]{\normalsize\thepage}
 }
 
+\setcounter{tocdepth}{3}
+
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\large\itshape}{}{0pt}{}
+
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{0.1\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.5\baselineskip}{0.1\baselineskip}
+
+\counterwithout{figure}{section}
+
+\AtBeginEnvironment{appendices}{\pretocmd{\section}{\clearpage}{}{}}{}
+
 \allowdisplaybreaks
 
 \setlength{\tabcolsep}{6pt} % default value: 6pt
 \setlength{\extrarowheight}{3pt}
 \renewcommand{\arraystretch}{1}
 \setlength{\defaultaddspace}{10pt}
-
-\setcounter{tocdepth}{3}
-
-\titleformat{\section}{\normalfont\normalsize\bfseries}{}{0pt}{}
-\titleformat{\subsection}{\normalfont\normalsize\itshape}{}{0pt}{}
-
-\titlespacing*{\section}{0pt}{0.45\baselineskip}{0.1\baselineskip}
-\titlespacing*{\subsection}{0pt}{0.45\baselineskip}{0.1\baselineskip}
-
-\counterwithout{figure}{section}

@@ -1,6 +1,6 @@
 \section{Modelling the Garland}
 
-The garland can be modelled as a \emph{circular conical spiral}, and applying lower and upper bounds, it has the parametric function \autocite{rejbrandConicalHelix}:
+Since we assumed that the tree is a cone and that the garland spirals evenly spaced around this cone, we can model the garland as a \emph{circular conical spiral}, and applying lower and upper bounds, it has the parametric function \autocite{rejbrandConicalHelix}:
 \begin{equation}
     C(t) = \begin{pmatrix}[0.7]
         at\cos{t} \\
@@ -8,20 +8,19 @@ The garland can be modelled as a \emph{circular conical spiral}, and applying lo
         bt
     \end{pmatrix}, \quad \forall t \in \left[0, \frac{H}{b}\right]
 \end{equation}
-where the constants $a, b \in \Real$. Lower and upper bounds are applied because the cone has height $H$, and we only want parts of the curve where $z(t)$ is between $0$ and $H$. Thus, $0 \leq bt \leq H$, and dividing by $b$, we find that $0 \leq t \leq \frac{H}{b}$, which are the bounds applied to $C(t)$. $t$ is the independent variable, and for any given value of $t$, the parametric function outputs a point on the curve, and as we generate an infinite
-amount of points from the lower bound to the upper bound, the locus of points formed generate the shape of the space curve. The z-axis of the spiral coincides with the tree's axis of radial symmetry and $C(0)$ represents the tip of the tree.
+where the constants $a, b \in \Real$. Lower and upper bounds are applied because the cone has height $H$, and as such we only want parts of the curve where $z(t)$ is between $0$ and $H$. Thus, $0 \leq bt \leq H$, and dividing by $b$, we find that $0 \leq t \leq \frac{H}{b}$, which are the bounds that we apply to $C(t)$. $t$ is the independent variable, and for any given value of $t$, the parametric function outputs a point in 3D space. As we generate an infinite amount of points from the lower bound to the upper bound, the locus of points formed results in the shape of the space curve. The z-axis of the spiral coincides with the tree's axis of radial symmetry and $C(0)$ represents the tip of the tree.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.42\textwidth]{diagrams/radial_distance.pdf}
+    \caption{Radial distance of a point on the spiral to the z-axis (top-down view).} \label{fig:radial}
+    \vspace*{-15pt}
+\end{figure}
 
 To ensure that the spiral sits on the surface of the cone (the Christmas tree), it is necessary to find appropriate values for $a$ and $b$. Using methodology inspired by a blog post authored by \citeauthor{stewartGarland2014}, we first define the radial distance $\rho(t)$ as the distance of a point on the curve to the tree's axis of radial symmetry, visualized in Figure \ref{fig:radial}. By the Pythagorean theorem:
 \begin{equation*}
     \rho(t) = \sqrt{x(t)^2+y(t)^2}
 \end{equation*}
-
-\begin{wrapfigure}{r}{0.4\textwidth}
-    \centering
-    \includegraphics[width=0.38\textwidth]{diagrams/radial_distance.pdf}
-    \caption{Radial distance of a point on the spiral to the z-axis (top-down view).} \label{fig:radial}
-    \vspace*{-30pt}
-\end{wrapfigure}
 \bulletarrow{Substituting for $x(t)$ and $y(t)$:}
 \begin{align}
     \rho(t) & = \sqrt{a^2t^2\cos^2{t}+a^2t^2\sin^2{t}} \notag \\
@@ -29,45 +28,42 @@ To ensure that the spiral sits on the surface of the cone (the Christmas tree), 
             & = at
 \end{align}
 
+\clearpage
+\begin{wrapfigure}{l}{0.32\textwidth}
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/similar_triangles.pdf}
+    \caption{Similar Triangles.} \label{fig:sim_tri}
+\end{wrapfigure}
 The radial distance is useful because any valid point of the curve should sit on the surface of the cone of height $H$ and radius $R$, and thus the right triangle with base lengths equal to the radial distance $\rho(t)$ and vertical distance $z(t)$ as visualized in Figure \ref{fig:sim_tri} is similar to the right triangle formed by the vertical cross-section of the cone by angle-angle, due to the shared an interior angle. This allows us to establish the following proportional relationship:
+\begin{gather}
+    \frac{R}{H} = \frac{\rho(t)}{z(t)} = \frac{at}{bt} \notag \\
+    \Rightarrow \frac{R}{H} = \frac{a}{b} \label{eq:proportion}
+\end{gather}
+In other words, for the spiral to lie on the surface of the cone with radius $R$ and height $H$, the ratio $a$ over $b$ must be proportional to $R$ over $H$. This relationship is visualized in Figure \ref{fig:param_comparison}, where we can see that larger values for $a$ and $b$ correspond to larger spacing between successive rotations of garland, while smaller values lead to smaller spacing between successive rotations of the garland. From this, we can establish a relationship between $\lambda$, $a$, and $b$.
 
-\noindent
-\begin{minipage}[b]{0.3\textwidth}
-    \vfill
-    \includegraphics[width=0.8\textwidth, valign=b]{diagrams/similar_triangles.pdf}
-    \captionof{figure}{Similar Triangles.} \label{fig:sim_tri}
-    \vspace*{-5pt}
-\end{minipage}
-\begin{minipage}[b]{0.7\textwidth}
-    \begin{gather}
-        \frac{R}{H} = \frac{\rho(t)}{z(t)} = \frac{at}{bt} \notag \\
-        \Rightarrow \frac{R}{H} = \frac{a}{b} \label{eq:proportion}
-    \end{gather}
-    In other words, for the spiral to lie on the surface of the cone with radius $R$ and height $H$, the ratio $a$ over $b$ must be proportional to $R$ over $H$. This relationship is visualized in Figure \ref{fig:param_comparison}, where we can see that larger values for $a$ and $b$ correspond to larger spacing between successive rotations of garland, while smaller values lead to smaller spacing between successive rotations of the garland. From this, we can establish a relationship between $\lambda$, $a$, and $b$.
-\end{minipage}
-
-\vspace*{5pt}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[t]{0.28\textwidth}
+    \vspace*{5pt}
+    \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/a_vs_b/close.png}
-        \caption{$a=0.075$, $b=0.360$}
+        \caption{$a=0.18$, $b=0.864$}
     \end{subfigure}
-    \begin{subfigure}[t]{0.28\textwidth}
+    \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/a_vs_b/medium.png}
-        \caption{$a=0.225$, $b=1.08$}
+        \caption{$a=0.42$, $b=2.96$}
     \end{subfigure}
-    \begin{subfigure}[t]{0.28\textwidth}
+    \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/a_vs_b/sparse.png}
-        \caption{$a=0.450$, $b=2.16$}
+        \caption{$a=0.825$, $b=3.96$}
     \end{subfigure}
-    \caption{Spirals that have the same ratio of $\frac{a}{b}$ lie on the same cone} \label{fig:param_comparison}
+    \caption{Spirals that have the same ratio of $\frac{a}{b}$ lie on the same cone (generated using \emph{Desmos}).} \label{fig:param_comparison}
 \end{figure}
 
 For every rotation of the garland, $t$ increases by $2\pi$ because that is the period of the trigonometric functions sine and cosine. Thus, the change in radial distance, $\Delta \rho$, and change in vertical distance, $\Delta z$, after one full period would be:
+
 \begin{equation*}
     \begin{aligned}[c]
         \Delta \rho & = \rho(t+2\pi) -\rho(t) \\
@@ -81,7 +77,7 @@ For every rotation of the garland, $t$ increases by $2\pi$ because that is the p
                  & = 2\pi b
     \end{aligned}
 \end{equation*}
-Since the distance between sucessive rotation of the garland is equal to $\lambda$, by the Pythagorean theorem:
+In other words, after wrapping around the tree once, the garland has moved outwards by $2\pi a$ and vertically by $2\pi b$. Then, since the distance between successive rotations of the garland is equal to $\lambda$, by the Pythagorean theorem:
 \begin{equation}
     \lambda^2 = \Delta \rho^2 + \Delta z^2 =4\pi^2a^2+4\pi^2b^2 \label{eq:spacing}
 \end{equation}
